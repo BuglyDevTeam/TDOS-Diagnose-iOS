@@ -1,19 +1,16 @@
-# TDS-Tooly诊断 (`TDS_Diagnose`, 原名`TDOS_Diagnose`)
+# Bugly Diagnose (`TDOS_Diagnose`)
 
-[![BK Pipelines Status](https://api.bkdevops.qq.com/process/api/external/pipelines/projects/tdos-diagnose-ios/p-fe48a5e231d1480d9d0afcf92a00a84c/badge)](http://devops.oa.com/console/pipeline/tdos-diagnose-ios/p-fe48a5e231d1480d9d0afcf92a00a84c/history)
-
-[TOC]
 
 ## 项目简介 (Introduction)
 
-TDS-Tooly诊断是由PCG/应用架构平台部/端服务平台中心推出的移动端问题诊断服务。
+Bugly Diagnose是由腾讯Bugly团队推出的移动端问题诊断服务。
 提供多端SDK快速接入能力，目前已覆盖Android、iOS、macOS、Flutter。本项目是iOS、macOS端SDK。
 
-TDS-Tooly诊断系统由两部分组成：
+Bugly诊断系统由两部分组成：
 
 `Diagnose`：提供日志捞取、日志染色、条件采集、远程调试等端上问题的调试诊断服务。
 
-`Logger`：提供本地打日志能力，底层基于微信xlog方案（腾讯视频VBLog修改版本）。此模块可选接入，业务前期可使用自有打日志模块配合Diagnose使用。
+`Logger`：提供本地打日志能力，底层基于微信xlog方案。此模块可选接入，业务前期可使用自有打日志模块配合Diagnose使用。
 
 当前系统支持能力：
 
@@ -29,7 +26,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### 一、平台注册
 
-打开[`TDS-调试诊断平台`](https://diagnose.woa.com/xy/app/prod/raftkit)，创建新应用。
+在Bugly专业版创建新应用。
 
 成功创建后，平台自动分配`AppId`与`AppKey`, 记录以备后续本地接入使用。
 
@@ -41,9 +38,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 it, simply add the following line to your Podfile:
 
 ```ruby
-# 添加内部源
-source 'https://mirrors.tencent.com/repository/generic/pod-go/T-CocoaPods/Specs/' #必要，TDOS_Diagnose的发布源
-source 'https://git.woa.com/TencentSpecs/TencentSpecs.git' #可选，for TDOS_Diagnose依赖项MMKV、YYModel，可替换为其他源
+
 
 # TDOS_Diagnose组成上包含四个模块：
 # 'TDOS_Diagnose/Core'
@@ -90,7 +85,7 @@ pod 'TDOS_Diagnose', '0.8.1'
 >
 >   1. 使用自身项目已有的打日志SDK：
 >
-> 已有的打日志SDK需实现 [`TDLoggingIMPProtocol`](https://git.woa.com/TDos/TDOS-Diagnose-iOS/blob/master/TDOS_Diagnose/Classes/LogReport/TDLoggingIMPProtocol.h)协议，并将实例提供给SDK：
+> 已有的打日志SDK需实现 `TDLoggingIMPProtocol`协议，并将实例提供给SDK：
 >
 >  ```objc
 >   // 请注意，自定义日志模块需严格依照协议约定实现，尤其是染色与加密相关的配置，否则部分功能可能出现异常。
@@ -121,8 +116,6 @@ TDLogSDKConfig *config = [TDLogSDKConfig configWithAppId:@"appid_demo" // 从日
 [[TDLogSDK sharedInstance] startWithConfig:config];                                       
 ```
 
-> 完整的初始化Demo请参考Example工程：
-> <https://git.woa.com/TDOS_Diagnose/TDOS-Diagnose-iOS/blob/master/Example/TDiagnose/TDIAGAppDelegate.m#L40>
 
 Extension项目接入特别说明：
 > 本SDK支持iOS Extension，如使用默认的依赖模块MMKV，需在项目Podfile中添加如下脚本：
@@ -197,7 +190,7 @@ Extension项目接入特别说明：
 
 ### 五、SDK日志打印模块说明
 
-SDK内置的打日志能力基于微信Mars-xlog方案，对外提供能力在[`TDLoggingIMPProtocol`](https://git.woa.com/TDos/TDOS-Diagnose-iOS/blob/master/TDOS_Diagnose/Classes/LogReport/TDLoggingIMPProtocol.h)中定义，主要包含如下本地日志打印、日志染色、日志文件获取等功能，使用方法：
+SDK内置的打日志能力基于微信Mars-xlog方案，对外提供能力在`TDLoggingIMPProtocol`中定义，主要包含如下本地日志打印、日志染色、日志文件获取等功能，使用方法：
 
 ```objc
 // 头文件
@@ -233,7 +226,7 @@ SDK内置的打日志能力基于微信Mars-xlog方案，对外提供能力在[`
 
 #### 5.1 基础能力
 
-包含打日志、设置日志级别、强制日志落地等。其中日志级别遵循RAFT日志定义——[`RAFTLogDef`](https://git.woa.com/raft/RaftInterface-iOS/blob/master/Log/RAFTLogDef.h)，提供7个级别。
+包含打日志、设置日志级别、强制日志落地等。其中日志级别遵循RAFT日志定义——`RAFTLogDef`，提供7个级别。
 
 ```c++
 RAFTLogLevelVerbose = 0,
@@ -340,14 +333,12 @@ RAFTLogLevelNone = 6,
 
 ## Author
 
-raycgwang, raycgwang@tencent.com
+Tencent, bugly@tencent.com
 
 ## Thanks & Credits
 
 本项目部分功能基于如下项目建设：
 
-* 腾讯视频日志SDK (<https://git.woa.com/NextLib/VBLogSDKiOS>)
-* RaftLog-iOS (<https://git.woa.com/columbia/RaftLog-iOS>)
 * Mars (<https://github.com/Tencent/mars>)
 
 ## License
