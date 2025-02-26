@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/TDOS_Diagnose/TDOS_Diagnose-xcframeworks.sh
+${PODS_ROOT}/../../TDOS_Diagnose/Core/TDS_Diagnose.xcframework
+${PODS_ROOT}/../../TDOS_Diagnose/DefaultInjectIMP/Logger/ios/mars.xcframework

@@ -1,0 +1,2 @@
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TDOS_Diagnose/Core/TDS_Diagnose.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/TDOS_Diagnose/DefaultLogger/mars.framework

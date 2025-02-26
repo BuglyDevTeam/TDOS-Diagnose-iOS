@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+
+source 'https://mirrors.tencent.com/repository/generic/pod-go/T-CocoaPods/Specs/'
+
+platform :osx, '10.11'
+workspace 'TDOS-Diagnose'
+
+if ENV['NOT_EMBED_DEPS'] == "true"
+    use_frameworks! :linkage => :dynamic
+end
+ 
+target 'TDOS-Diagnose' do
+    pod 'TDOS_Diagnose', :path => '../../'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '10.11'
+            config.build_settings['OTHER_LDFLAGS'] = ['-ObjC', '$(inherited)']
+        end
+    end
+end

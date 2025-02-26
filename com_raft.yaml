@@ -1,0 +1,30 @@
+# 组件名
+name: TDOS_Diagnose
+# 组件展示名 选填 填写后替代英文名进行展示
+displayName: TDS_Diagnose(iOS)
+# 组件版本，和 podspec 中保持一致
+version: 0.8.1
+# 配置版本 v2为RAFT2.0
+apiVersion: com.raft.uas/v2alpha1
+# 平台 Android or iOS
+platform: iOS
+# 团队名称 用于市场团队展示，并参与排名，打造团队影响力
+team: '应用架构平台部/端服务平台中心'
+# 组件介绍摘要
+summary: '集日志打印、捞取、染色、条件采集等为一体的端上问题诊断SDK'
+# 组件详细介绍
+description: '集日志打印、捞取、染色、条件采集等为一体的端上问题诊断SDK'
+# 负责人 将接收组件日报和Crash告警
+owner:
+  - raycgwang
+# ---- Crash告警规则 -----
+CrashAlarm:                        # Crash告警
+  alarmRules:                      # 告警规则，三条件为"与"关系
+                                   # 其中CrashRatio和avg7DShake
+                                   # 为二选1必选项
+    - devcieLowLimit: 10000        # 设备数下限
+      crashRatio: 0.0001           # Crash率告警线，取值范围0~1
+                                   # 以组件单版本单应用进行统计
+      avg7DShake: 0.07             # 7天Crash设备数波动率告警线
+                                   # 取值范围0~1  
+

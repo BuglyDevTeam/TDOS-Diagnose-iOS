@@ -1,0 +1,50 @@
+source 'https://mirrors.tencent.com/repository/generic/pod-go/T-CocoaPods/Specs/'
+
+#use_frameworks!
+
+target 'TDiagnose_Example' do
+  platform :ios, '11.0'
+  pod 'RaftKit/BasicPlugins', '~> 1.4', :modular_headers => true
+  
+  # 整体集成
+  pod 'TDOS_Diagnose', :path => '../', :modular_headers => true, :testspecs => ['UnitTests']
+  
+  # 分模块集成
+#  pod 'TDOS_Diagnose/Core', :path => '../', :modular_headers => true
+#  pod 'TDOS_Diagnose/DefaultLogger', :path => '../' #（默认的打日志模块实现，底层依赖mars.framework）
+#  pod 'TDOS_Diagnose/DefaultStorageImpl', :path => '../' #（默认的KV存储实现，依赖MMKV）
+#  # pod 'TDOS_Diagnose/DefaultFilePacker', :path => '../' # (默认的文件压缩实现1，依赖SSZipArchive)
+#  pod 'TDOS_Diagnose/DefaultFilePacker2', :path => '../' # (默认的文件压缩实现2，依赖ZipArchive)
+
+  target 'TDiagnose_Tests' do
+    inherit! :search_paths
+  end
+  
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name == "TDOS_Diagnose"
+        target.build_configurations.each do |config|
+          config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'YES'
+        end
+      end
+    end
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64 i386"
+    end
+  end
+  
+end
+
+target 'TDiagnose_Example_Mac' do
+  platform :osx, '10.11'
+  #分模块集成
+#  pod 'TDOS_Diagnose/Core', :path => '../', :modular_headers => true
+#  pod 'TDOS_Diagnose/DefaultStorageImpl', :path => '../'
+#  pod 'TDOS_Diagnose/DefaultFilePacker', :path => '../' # (默认的文件压缩实现1，依赖SSZipArchive)
+#  pod 'TDOS_Diagnose/DefaultFilePacker2', :path => '../' # (默认的文件压缩实现2，依赖ZipArchive)
+#  pod 'TDOS_Diagnose/DefaultLogger', :path => '../'
+
+  # 整体集成
+  pod 'TDOS_Diagnose', :path => '../', :modular_headers => true, :testspecs => ['UnitTests']
+  
+end

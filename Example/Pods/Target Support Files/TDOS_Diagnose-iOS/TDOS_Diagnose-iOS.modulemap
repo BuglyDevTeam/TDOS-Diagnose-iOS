@@ -1,0 +1,7 @@
+module TDOS_Diagnose {
+  umbrella header "TDOS_Diagnose-iOS-umbrella.h"
+  exclude header "TDOS_Diagnose-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,1 @@
+../../../../../TDOS_Diagnose/Core/Headers/ILogMacro.h

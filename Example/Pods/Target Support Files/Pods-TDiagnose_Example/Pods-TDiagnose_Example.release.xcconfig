@@ -1,0 +1,16 @@
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
+EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../TDOS_Diagnose/Core" "${PODS_ROOT}/../../TDOS_Diagnose/DefaultInjectIMP/Logger/ios" "${PODS_ROOT}/RaftKit/RaftKit/Core" "${PODS_XCFRAMEWORKS_BUILD_DIR}/TDOS_Diagnose/Core" "${PODS_XCFRAMEWORKS_BUILD_DIR}/TDOS_Diagnose/DefaultLogger"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MMKV" "${PODS_ROOT}/Headers/Public/MMKVCore" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/RAFTMeasure" "${PODS_ROOT}/Headers/Public/RaftKit" "${PODS_ROOT}/Headers/Public/SSZipArchive" "${PODS_ROOT}/Headers/Public/TDOS_Diagnose" "${PODS_ROOT}/Headers/Public/YYModel" "${PODS_XCFRAMEWORKS_BUILD_DIR}/RaftKit/Core/Headers"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/MMKV-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/MMKVCore-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/RAFTMeasure" "${PODS_CONFIGURATION_BUILD_DIR}/RaftKit" "${PODS_CONFIGURATION_BUILD_DIR}/SSZipArchive-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/TDOS_Diagnose-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/YYModel-iOS" "${PODS_XCFRAMEWORKS_BUILD_DIR}/RaftKit/Core"
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_ROOT}/Headers/Public/RaftKit/RaftKit.modulemap" -fmodule-map-file="${PODS_ROOT}/Headers/Public/SSZipArchive/SSZipArchive-iOS.modulemap" -fmodule-map-file="${PODS_ROOT}/Headers/Public/TDOS_Diagnose/TDOS_Diagnose-iOS.modulemap"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"MMKV-iOS" -l"MMKVCore-iOS" -l"RAFTMeasure" -l"RaftKit" -l"RaftKitSource" -l"SSZipArchive-iOS" -l"TDOS_Diagnose-iOS" -l"YYModel-iOS" -l"c++" -l"iconv" -l"sqlite3" -l"z" -framework "AVFoundation" -framework "AVKit" -framework "Contacts" -framework "CoreFoundation" -framework "CoreLocation" -framework "CoreMedia" -framework "CoreTelephony" -framework "EventKit" -framework "Foundation" -framework "MapKit" -framework "Photos" -framework "QuickLook" -framework "SceneKit" -framework "Security" -framework "SystemConfiguration" -framework "TDS_Diagnose" -framework "UIKit" -framework "WebKit" -framework "mars"
+OTHER_MODULE_VERIFIER_FLAGS = $(inherited) "-F${PODS_CONFIGURATION_BUILD_DIR}/MMKV-iOS" "-F${PODS_CONFIGURATION_BUILD_DIR}/MMKVCore-iOS" "-F${PODS_CONFIGURATION_BUILD_DIR}/RAFTMeasure" "-F${PODS_CONFIGURATION_BUILD_DIR}/RaftKit" "-F${PODS_CONFIGURATION_BUILD_DIR}/SSZipArchive-iOS" "-F${PODS_CONFIGURATION_BUILD_DIR}/TDOS_Diagnose-iOS" "-F${PODS_CONFIGURATION_BUILD_DIR}/YYModel-iOS"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/RaftKit/RaftKit.modulemap" -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/SSZipArchive/SSZipArchive-iOS.modulemap" -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/TDOS_Diagnose/TDOS_Diagnose-iOS.modulemap"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

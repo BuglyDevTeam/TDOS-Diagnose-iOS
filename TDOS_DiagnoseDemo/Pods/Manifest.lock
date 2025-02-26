@@ -1,0 +1,48 @@
+PODS:
+  - MMKV (2.0.2):
+    - MMKVCore (~> 2.0.2)
+  - MMKVCore (2.0.2)
+  - SSZipArchive (2.6.0)
+  - TDOS_Diagnose (0.8.5):
+    - TDOS_Diagnose/AIO (= 0.8.5)
+  - TDOS_Diagnose/AIO (0.8.5):
+    - TDOS_Diagnose/Core
+    - TDOS_Diagnose/DefaultFilePacker
+    - TDOS_Diagnose/DefaultLogger
+    - TDOS_Diagnose/DefaultStorageImpl
+  - TDOS_Diagnose/Core (0.8.5):
+    - YYModel
+  - TDOS_Diagnose/DefaultFilePacker (0.8.5):
+    - SSZipArchive
+    - TDOS_Diagnose/Core
+  - TDOS_Diagnose/DefaultLogger (0.8.5):
+    - TDOS_Diagnose/Core
+  - TDOS_Diagnose/DefaultStorageImpl (0.8.5):
+    - MMKV
+    - TDOS_Diagnose/Core
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - TDOS_Diagnose (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - MMKV
+    - MMKVCore
+    - SSZipArchive
+    - YYModel
+
+EXTERNAL SOURCES:
+  TDOS_Diagnose:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MMKV: 3eacda84cd1c4fc95cf848d3ecb69d85ed56006c
+  MMKVCore: 508b4d3a8ce031f1b5c8bd235f0517fb3f4c73a9
+  SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
+  TDOS_Diagnose: afd3c2e89ff286ab9786f5acb6647d503f3c3673
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: d18d34f582e60f3d6d9c44c5de52a3cca5601fc1
+
+COCOAPODS: 1.16.2

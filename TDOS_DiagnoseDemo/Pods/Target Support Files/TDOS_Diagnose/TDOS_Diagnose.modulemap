@@ -1,0 +1,6 @@
+module TDOS_Diagnose {
+  umbrella header "TDOS_Diagnose-umbrella.h"
+
+  export *
+  module * { export * }
+}

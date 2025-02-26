@@ -1,0 +1,14 @@
+//
+//  FLEXViewShortcuts.h
+//  FLEX
+//
+//  Created by Tanner Bennett on 12/11/19.
+//  Copyright © 2020 FLEX Team. All rights reserved.
+//
+
+#import "RFKT_FLEXShortcutsSection.h"
+
+/// Adds "Nearest View Controller" and "Preview Image" shortcuts to all views
+@interface RFKT_FLEXViewShortcuts : RFKT_FLEXShortcutsSection
+
+@end

@@ -1,0 +1,57 @@
+PODS:
+  - MMKV (1.2.10):
+    - MMKVCore (~> 1.2.10)
+  - MMKVCore (1.2.10)
+  - RaftInterface (0.0.21)
+  - RAFTMeasure (0.2.7)
+  - SSZipArchive (2.2.2)
+  - TDOS_Diagnose (0.8.3):
+    - TDOS_Diagnose/AIO (= 0.8.3)
+  - TDOS_Diagnose/AIO (0.8.3):
+    - TDOS_Diagnose/Core
+    - TDOS_Diagnose/DefaultFilePacker
+    - TDOS_Diagnose/DefaultLogger
+    - TDOS_Diagnose/DefaultStorageImpl
+  - TDOS_Diagnose/Core (0.8.3):
+    - RaftInterface (~> 0.0.13)
+    - RAFTMeasure
+    - YYModel
+  - TDOS_Diagnose/DefaultFilePacker (0.8.3):
+    - SSZipArchive
+    - TDOS_Diagnose/Core
+  - TDOS_Diagnose/DefaultLogger (0.8.3):
+    - TDOS_Diagnose/Core
+  - TDOS_Diagnose/DefaultStorageImpl (0.8.3):
+    - MMKV
+    - RaftInterface (~> 0.0.13)
+    - TDOS_Diagnose/Core
+  - YYModel (1.0.5)
+
+DEPENDENCIES:
+  - TDOS_Diagnose (from `../../`)
+
+SPEC REPOS:
+  https://mirrors.tencent.com/repository/generic/pod-go/T-CocoaPods/Specs/:
+    - MMKV
+    - MMKVCore
+    - RaftInterface
+    - RAFTMeasure
+    - SSZipArchive
+    - YYModel
+
+EXTERNAL SOURCES:
+  TDOS_Diagnose:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  MMKV: c555a765835763aeb7d0c119f0c59b47772b946f
+  MMKVCore: 86b7fd3107d13e38586abe65a1dcf34c88a7963a
+  RaftInterface: 77eb94d17b15fd38cc913e69be06b61339aba51a
+  RAFTMeasure: d500aa80ba2916448075ecee04be8dff5bf90c96
+  SSZipArchive: bf4a2ddf6602805bc591f2008ef69d42ff95dce6
+  TDOS_Diagnose: 4a65ff2bc362be32a8267994289e83aad5969940
+  YYModel: c6cb5c6d45a6b97f5598d5e3b86105a7bdfdfd40
+
+PODFILE CHECKSUM: 7d7e0bec2490b2e772267ee5a92451e5f5272274
+
+COCOAPODS: 1.11.3
