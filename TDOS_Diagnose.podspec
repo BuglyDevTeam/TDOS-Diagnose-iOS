@@ -3,15 +3,15 @@
 Pod::Spec.new do |spec|
   spec.name             = 'TDOS_Diagnose'
   spec.version          = '0.8.5'
-  spec.summary          = '腾讯端服务-日志诊断SDK'
+  spec.summary          = '腾讯Bugly-日志诊断SDK'
   spec.description      = <<-DESC
-                        一款由PCG端服务平台中心推出的日志诊断SDK.
+                        一款由腾讯Bugly团队推出的日志诊断SDK.
                         提供日志打印、日志上传、问题诊断等App基础能力
                             DESC
                        
-  spec.homepage         = 'https://git.woa.com/TDOS_Diagnose/TDOS-Diagnose-iOS'
+  spec.homepage         = 'hhttps://github.com/BuglyDevTeam/TDOS-Diagnose-iOS'
   spec.license          = { :type => 'MIT', :file => 'LICENSE' }
-  spec.author           = { 'raycgwang' => 'raycgwang@tencent.com' }
+  spec.author           = { "Tencent" => "bugly@tencent.com" }
   spec.source           = { :git => 'https://git.woa.com/TDOS_Diagnose/TDOS-Diagnose-iOS.git', :tag => spec.version.to_s }
   spec.ios.deployment_target = '11.0'
   spec.osx.deployment_target = '10.11'
