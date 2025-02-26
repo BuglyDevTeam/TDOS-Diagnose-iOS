@@ -1,1 +1,0 @@
-../../../RaftKit/RaftKit/Core/Headers/UIWindow+RFKTShakeTrigger.h

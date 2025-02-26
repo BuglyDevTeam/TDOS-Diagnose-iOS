@@ -1,1 +1,0 @@
-../../../../../TDOS_Diagnose/Core/Headers/TDLogFilePackerProtocol.h

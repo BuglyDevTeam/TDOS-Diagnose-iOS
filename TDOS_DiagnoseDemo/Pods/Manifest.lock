@@ -1,8 +1,8 @@
 PODS:
-  - MMKV (2.0.2):
-    - MMKVCore (~> 2.0.2)
-  - MMKVCore (2.0.2)
-  - SSZipArchive (2.6.0)
+  - MMKV (1.3.4):
+    - MMKVCore (~> 1.3.4)
+  - MMKVCore (1.3.4)
+  - SSZipArchive (2.4.3)
   - TDOS_Diagnose (0.8.5):
     - TDOS_Diagnose/AIO (= 0.8.5)
   - TDOS_Diagnose/AIO (0.8.5):
@@ -37,12 +37,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MMKV: 3eacda84cd1c4fc95cf848d3ecb69d85ed56006c
-  MMKVCore: 508b4d3a8ce031f1b5c8bd235f0517fb3f4c73a9
-  SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
+  MMKV: ed58ad794b3f88c24d604a5b74f3fba17fcbaf74
+  MMKVCore: a67a1cede26175c413176f404a7cedec43f96a0b
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   TDOS_Diagnose: afd3c2e89ff286ab9786f5acb6647d503f3c3673
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: d18d34f582e60f3d6d9c44c5de52a3cca5601fc1
+PODFILE CHECKSUM: 46159e098aa62f8cd3c9d50333b0abdf827f0430
 
 COCOAPODS: 1.16.2

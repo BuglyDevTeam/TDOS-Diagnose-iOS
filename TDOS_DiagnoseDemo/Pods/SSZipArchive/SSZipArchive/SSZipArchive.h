@@ -16,13 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSString *const SSZipArchiveErrorDomain;
 typedef NS_ENUM(NSInteger, SSZipArchiveErrorCode) {
-    SSZipArchiveErrorCodeFailedOpenZipFile             = -1,
-    SSZipArchiveErrorCodeFailedOpenFileInZip           = -2,
-    SSZipArchiveErrorCodeFileInfoNotLoadable           = -3,
-    SSZipArchiveErrorCodeFileContentNotReadable        = -4,
-    SSZipArchiveErrorCodeFailedToWriteFile             = -5,
-    SSZipArchiveErrorCodeInvalidArguments              = -6,
-    SSZipArchiveErrorCodeSymlinkEscapesTargetDirectory = -7,
+    SSZipArchiveErrorCodeFailedOpenZipFile      = -1,
+    SSZipArchiveErrorCodeFailedOpenFileInZip    = -2,
+    SSZipArchiveErrorCodeFileInfoNotLoadable    = -3,
+    SSZipArchiveErrorCodeFileContentNotReadable = -4,
+    SSZipArchiveErrorCodeFailedToWriteFile      = -5,
+    SSZipArchiveErrorCodeInvalidArguments       = -6,
 };
 
 @protocol SSZipArchiveDelegate;
@@ -84,18 +83,6 @@ typedef NS_ENUM(NSInteger, SSZipArchiveErrorCode) {
         progressHandler:(void (^_Nullable)(NSString *entry, unz_file_info zipInfo, long entryNumber, long total))progressHandler
       completionHandler:(void (^_Nullable)(NSString *path, BOOL succeeded, NSError * _Nullable error))completionHandler;
 
-+ (BOOL)unzipFileAtPath:(NSString *)path
-          toDestination:(NSString *)destination
-     preserveAttributes:(BOOL)preserveAttributes
-              overwrite:(BOOL)overwrite
-    symlinksValidWithin:(nullable NSString *)symlinksValidWithin
-         nestedZipLevel:(NSInteger)nestedZipLevel
-               password:(nullable NSString *)password
-                  error:(NSError **)error
-               delegate:(nullable id<SSZipArchiveDelegate>)delegate
-        progressHandler:(void (^_Nullable)(NSString *entry, unz_file_info zipInfo, long entryNumber, long total))progressHandler
-      completionHandler:(void (^_Nullable)(NSString *path, BOOL succeeded, NSError * _Nullable error))completionHandler;
-
 // Zip
 // default compression level is Z_DEFAULT_COMPRESSION (from "zlib.h")
 // keepParentDirectory: if YES, then unzipping will give `directoryName/fileName`. If NO, then unzipping will just give `fileName`. Default is NO.
@@ -147,7 +134,7 @@ typedef NS_ENUM(NSInteger, SSZipArchiveErrorCode) {
 - (BOOL)writeFile:(NSString *)path withPassword:(nullable NSString *)password;
 - (BOOL)writeFileAtPath:(NSString *)path withFileName:(nullable NSString *)fileName withPassword:(nullable NSString *)password;
 - (BOOL)writeFileAtPath:(NSString *)path withFileName:(nullable NSString *)fileName compressionLevel:(int)compressionLevel password:(nullable NSString *)password AES:(BOOL)aes;
-/// write symlink files
+///write symlink files
 - (BOOL)writeSymlinkFileAtPath:(NSString *)path withFileName:(nullable NSString *)fileName compressionLevel:(int)compressionLevel password:(nullable NSString *)password AES:(BOOL)aes;
 /// write data
 - (BOOL)writeData:(NSData *)data filename:(nullable NSString *)filename withPassword:(nullable NSString *)password;

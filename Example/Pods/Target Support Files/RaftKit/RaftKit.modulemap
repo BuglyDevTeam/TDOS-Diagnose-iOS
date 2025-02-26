@@ -1,6 +1,0 @@
-module RaftKit {
-  umbrella header "RaftKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.guidTextField.text = appDelegate.deviceId;
     [self updateColorLabel];
     
@@ -63,38 +63,15 @@
     [TDOSLoggerProxy.defaultProxy flushLog:YES];
     time_t currentTime = time(0);
 
-    // New：新增支持限定最大日志量，超过该大小优先丢弃旧文件
-    // 使用如下接口获取，如限制最大获取200M（请勿设置过小，以免影响正常上报）：
     NSArray<NSString *> *logFiles = [TDOSLoggerProxy.defaultProxy getPeroidLogFilesWithStartTime:(currentTime - 3600)
                                                                                           endTime:currentTime
                                                                                        sizeLimit:(200 * 1024 * 1024)];
-    // 如无需限制最大日志量，可继续使用原接口：
-    // 获取最近1小时日志
-//    NSArray<NSString *> *logFiles = [TDOSLoggerProxy.defaultProxy getPeroidLogFilesWithStartTime:(currentTime - 3600)
-//                                                                                          endTime:currentTime];
-    // 示例1：调用诊断SDK上传接口
     [TDLogSDK.sharedInstance uploadFiles:logFiles
                                  withTag:@"L1"
                                  summary:@"my summary"
                            andExtendInfo:@{@"testKey": @"testValue"}
                               completion:^(BOOL result, NSString * _Nullable errMsg) {
         NSLog(@"auto upload result:%d error:%@", result, errMsg);
-    }];
-    
-    
-    // 示例2：调用诊断SDK上传接口2
-    // 第一步：组装上报的附加信息，主要用于跨系统检索使用
-    TDLogExtQueryInfo *queryInfo = [TDLogExtQueryInfo new];
-    queryInfo.queryKey = @"--bugly-crash-id--"; // 必填，如可填入bugly crash id，用于从bugly平台直接关联本次上报
-    queryInfo.sourcePlatform = @"--bugly--"; // 选填，表示自动上报来自bugly自动触发，仅用于平台统计
-    // 第二步：调用上报接口
-    [TDLogSDK.sharedInstance uploadFiles:@[] // 测试用，传入空数组将不会执行上报动作
-                                 withTag:@"L2"
-                                 summary:@"my summary"
-                            extQueryInfo:queryInfo
-                           andExtendInfo:@{@"testKey": @"testValue"}
-                              completion:^(BOOL result, NSString * _Nullable errMsg) {
-        NSLog(@"auto upload 2 result:%d error:%@", result, errMsg);
     }];
 }
 
@@ -119,26 +96,6 @@
             dispatch_async(dispatch_queue_create("tdosConcurrentQ", DISPATCH_QUEUE_CONCURRENT), ^{
                 TDLogFatal(@"TDOSLog", @"concurrent---666---%u", arc4random());
             });
-        }
-    });
-}
-
-- (IBAction)testSubLoggerWriteLogs:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
-    [appDelegate.subLogger log:RAFTLogLevelFatal
-                           tag:@"TDOSLog"
-                          file:__FILE__
-                          func:__FUNCTION__
-                          line:__LINE__
-                        format:@"fatal---sublogger test---%u", arc4random(), nil];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        for (int i = 0; i < 1000; i++) {
-            [appDelegate.subLogger log:RAFTLogLevelFatal
-                                   tag:@"TDOSLog"
-                                  file:__FILE__
-                                  func:__FUNCTION__
-                                  line:__LINE__
-                                format:@"fatal---sublogger test---%u-%d", arc4random(), i, nil];
         }
     });
 }

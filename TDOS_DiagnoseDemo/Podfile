@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '11.0'
 
 target 'TDOS_DiagnoseDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,18 +8,5 @@ target 'TDOS_DiagnoseDemo' do
   # Pods for TDOS_DiagnoseDemo
   pod 'TDOS_Diagnose', :path => '../', :modular_headers => true
 
-
-  post_install do |installer|
-    installer.pods_project.targets.each do |target|
-      if target.name == "TDOS_DiagnoseDemo"
-        target.build_configurations.each do |config|
-          config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'YES'
-        end
-      end
-    end
-    installer.pods_project.build_configurations.each do |config|
-      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64 i386"
-    end
-  end
 
 end

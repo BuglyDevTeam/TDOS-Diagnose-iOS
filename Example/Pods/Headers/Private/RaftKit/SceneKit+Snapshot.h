@@ -1,1 +1,0 @@
-../../../RaftKit/RaftKit/Core/Headers/SceneKit+Snapshot.h

@@ -1,1 +1,0 @@
-../../../RaftKit/RaftKit/Core/Headers/RFKTEntryTriggerDelegate.h

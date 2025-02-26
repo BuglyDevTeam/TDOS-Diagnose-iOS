@@ -8,16 +8,14 @@
 #import "AppDelegate.h"
 
 @import TDOS_Diagnose;
-//#import <TDOS_Diagnose/TDOS_Diagnose.h>
-//#import <TDOS_Diagnose/TDOSLoggerProxy.h>
-//#import <TDOS_Diagnose/TDOSLogger.h>
 
-#define TDOSLOG_APPID   @"a2031e998b"
-#define TDOSLOG_APPKEY  @"5f58a9cf-0acc-4c0d-a020-fc8f0bacb3cc"
+//#define TDOSLOG_APPID   @"a2031e998b"
+//#define TDOSLOG_APPKEY  @"5f58a9cf-0acc-4c0d-a020-fc8f0bacb3cc"
+#define TDOSLOG_APPID   @"b550e9bebd"
+#define TDOSLOG_APPKEY  @"a9ecbb72-5f7f-473a-8e38-e4e77d439450"
 #define TDOSLOG_HOST @"pro.bugly.qq.com"
 
-// 定义加密公钥（联系TDOS诊断平台，分配密钥对，私钥后台保管）
-// 传空或nil或格式不正确的公钥，SDK都不加密
+// 定义加密公钥,传空或nil或格式不正确的公钥，SDK都不加密
 #define TDOSLOG_PUBKEY @""
 
 @interface AppDelegate ()<TDLogSDKDataSource>
@@ -30,10 +28,9 @@
 
 + (void)load {
     // 测试pre-main阶段初始化日志
-    TDOSLoggerConfig *loggerConfig = [TDOSLoggerConfig defaultConfig]; //可直接使用默认配置
+    TDOSLoggerConfig *loggerConfig = [TDOSLoggerConfig defaultConfig];
     TDOSLogger *logger = [[TDOSLogger alloc] initWithConfig:loggerConfig];
-    [logger log:RAFTLogLevelError tag:@"1" file:__FILE__ func:__func__ line:__LINE__ msg:@"0.6.2版本后Logger支持在+Load"];
-    [logger log:RAFTLogLevelError tag:@"2" file:__FILE__ func:__func__ line:__LINE__ msg:@"或constructor函数中初始化🔥"];
+    [logger log:RAFTLogLevelError tag:@"test" file:__FILE__ func:__func__ line:__LINE__ msg:@"测试在pre-main阶段打印日志"];
     [logger flushLog:YES];
 }
 
@@ -45,24 +42,14 @@
     id deviceIdObj = [[NSUserDefaults standardUserDefaults] objectForKey:@"tdiagnose_test_device_guid"];
     self.deviceId = deviceIdObj ?: @"123456";
     
-#if __has_include(<RaftKit/RaftKit.h>)
-    // 初始化RaftKit调试工具
-    [RFKTManager install];
-#endif
     
     
-    // 打日志模块初始化 begin--------------------------
     TDOSLoggerConfig *loggerConfig = [TDOSLoggerConfig defaultConfig]; //可直接使用默认配置
-    // 或自定义一些配置
+    
     TDOSLoggerConfig *customConfig = [TDOSLoggerConfig configWithLogPath:loggerConfig.logPath
                                                                logPrefix:@"TDiagnoseLog"
                                                             defaultLevel:RAFTLogLevelAll
                                                             andPublicKey:TDOSLOG_PUBKEY];
-    
-    // ⚠️请注意: 一般情况下，上述Config参数中logPrefix建议设置为固定值。
-    // 然而，如果logPrefix发生变化，请正确设置如下isLogFilePrefixChanged属性，以确保旧的mmap文件得到更新，避免丢失部分日志。
-    // 常见使用场景如将App版本号作为logPrefix，此时logPrefix将跟随版本更新发生变化，可如下设置：
-    // customConfig.isLogFilePrefixChanged = [MyApp isFirstLaunchAfterUpgrade];
     
     TDOSLogger *logger = [[TDOSLogger alloc] initWithConfig:customConfig];
     [logger setConsoleLogEnabled:YES];// 开启控制台日志（可选，建议仅在调试时开启）
@@ -71,42 +58,15 @@
     // 日志模块解耦层，可选，可替换
     TDOSLoggerProxy *loggerProxy = [TDOSLoggerProxy defaultProxy];
     [loggerProxy setLogger:logger];
-    // 打日志模块初始化 end--------------------------
-    
-    
-    // 打日志多实例测试 begin--------------------------
-    // New: 支持创建多个打日志子实例, 实现日志输出与主实例隔离
-    // Tips: 子实例创建后，需注册以支持远程捞日志，见下方“registSubLogger:”
-    for (int i = 0; i < 10; i++) {
-        NSString *subLoggerPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"SubLogger%d", i]];
-        // 创建子实例的方法可以与主实例完全一致，也可以使用-[TDOSLogger createSubLoggerInstanceWithLogPrefix:]的快捷方法。
-        // 需要注意的是，若子实例使用了与主实例不同的加密密钥，平台端将无法自动解密子实例日志。
-        TDOSLoggerConfig *subLoggerConfig = [TDOSLoggerConfig configWithLogPath:subLoggerPath
-                                                                      logPrefix:[NSString stringWithFormat:@"TestLog%d", i]
-                                                                   defaultLevel:RAFTLogLevelError
-                                                                   andPublicKey:TDOSLOG_PUBKEY];
-        id<TDLoggingIMPProtocol> subLogger = [[TDOSLogger alloc] initWithConfig:subLoggerConfig];
-        [self.subLoggers addObject:subLogger];
-        [logger log:RAFTLogLevelFatal tag:@"SubLogger" file:__FILE__ func:__FUNCTION__ line:__LINE__ format:@"Logger%d初始化", i, nil];
-    }
-    self.subLogger = self.subLoggers.firstObject;
-    // 打日志多实例测试 end--------------------------
-    
-    
+ 
     // 捞日志模块初始化 begin--------------------------
-    // 给捞日志模块传入一些必要依赖，目前需要
+    // 给捞日志模块传入一些必要依赖
     // 1、打日志模块，用于输出捞日志模块内部日志
     // 2、KV存储模块，用于捞日志模块内部持久化任务信息，实现重试等逻辑
     // 3、文件打包模块，用于日志文件打包
     TDIAGDepends *depends = [TDIAGDepends dependsWithLogImp:loggerProxy
                                                kvFactoryImp:[TDMMKVFactoryImpl sharedInstance]
                                            andFilePackerImp:[TDLogFilePackerImp new]];
-    
-    // New: 如有日志子实例，需注册以支持远程捞日志，如无请忽略
-    // Tips: 由于平台限制，暂不支持单独捞取子实例日志，子实例日志文件将与主实例文件一同打包上传
-    for (id<TDLoggingIMPProtocol> subLogger in self.subLoggers) {
-        [depends registSubLogger:subLogger];
-    }
     
     // appid & appKey, 平台生成
     NSString *appID = TDOSLOG_APPID;
@@ -117,7 +77,8 @@
                                                       appKey:appKey
                                                   dataSource:self
                                                      depends:depends];
-    config.customServerHost = TDOSLOG_HOST;
+    config.serverHostType = TDLogServerHostTypeBuglyPro;
+    
     // 海外版需额外设置如下参数
     // config.serverHostType = TDLogServerHostTypeOversea;
     
