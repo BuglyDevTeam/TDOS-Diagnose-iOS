@@ -14,7 +14,6 @@ Pod::Spec.new do |spec|
   spec.author           = { "Tencent" => "bugly@tencent.com" }
   spec.source           = { :git => 'https://git.woa.com/TDOS_Diagnose/TDOS-Diagnose-iOS.git', :tag => spec.version.to_s }
   spec.ios.deployment_target = '11.0'
-  spec.osx.deployment_target = '10.11'
   
   # ――― Sub Specs ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.default_subspec = 'AIO'
@@ -34,7 +33,6 @@ Pod::Spec.new do |spec|
       ss.public_header_files = 'TDOS_Diagnose/DefaultInjectIMP/Logger/*{.h}'
       ss.dependency 'TDOS_Diagnose/Core'
       ss.ios.vendored_frameworks = 'TDOS_Diagnose/DefaultInjectIMP/Logger/ios/mars.xcframework'
-      ss.osx.vendored_frameworks = 'TDOS_Diagnose/DefaultInjectIMP/Logger/osx/mars.framework'
   end
   
   #默认的KV组件实现，依赖MMKV
