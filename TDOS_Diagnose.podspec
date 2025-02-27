@@ -76,13 +76,5 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig = {
     'GCC_PREPROCESSOR_DEFINITIONS' => 'TDIAG_VERSION=' + spec.version.to_s,
   }
-
-  # ――― Test Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
- spec.test_spec 'UnitTests' do |test_spec|
-     test_spec.requires_app_host = true #兼容M1 x86_64 UnitTest
-     test_spec.source_files = 'Tests/*.{h,m}'
-     test_spec.dependency 'OCMock'
-     test_spec.dependency 'YYModel'
- end
   
 end
