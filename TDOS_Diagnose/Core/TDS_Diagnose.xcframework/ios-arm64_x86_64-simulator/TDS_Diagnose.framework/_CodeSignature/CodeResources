@@ -134,7 +134,7 @@
 		</data>
 		<key>Headers/TDLogSDK.h</key>
 		<data>
-		NC+HRgiRIXrlAAJM7ujpop9WEr0=
+		Yf8tdC9MXmz9h4YXocDq40VE75U=
 		</data>
 		<key>Headers/TDLogSDKConfig.h</key>
 		<data>
@@ -182,7 +182,7 @@
 		</data>
 		<key>Headers/TDLogUploadTaskModel.h</key>
 		<data>
-		7jjN7GBCsz/swwIeeUayA3vBZNA=
+		b4yEAeBxFIMvAIU/fJpdtF9lwTQ=
 		</data>
 		<key>Headers/TDLoggingIMPProtocol.h</key>
 		<data>
@@ -198,7 +198,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XJ9A+MEH3u9dWEr2Kq9wQiPvovc=
+		1KYby5bppPkLDBlh9C9EIPUFa0o=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -563,11 +563,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NC+HRgiRIXrlAAJM7ujpop9WEr0=
+			Yf8tdC9MXmz9h4YXocDq40VE75U=
 			</data>
 			<key>hash2</key>
 			<data>
-			FazlCPxk7aUrgBkDNaMpOFFZ3G5g/neDVTwYZ7IrCYc=
+			qDZ7pRFfM+G9M+eV66y5qW5gXz8Q9IxOasGeOFw7tYA=
 			</data>
 		</dict>
 		<key>Headers/TDLogSDKConfig.h</key>
@@ -695,11 +695,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7jjN7GBCsz/swwIeeUayA3vBZNA=
+			b4yEAeBxFIMvAIU/fJpdtF9lwTQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			+KNLJ5FOw88kOK1R0fDMzjUsKF27Rteqj42gJH9m6us=
+			/0aczuqvPrR6TB1DLxhgogzw9jPyv+kYHvBvYn3w3EI=
 			</data>
 		</dict>
 		<key>Headers/TDLoggingIMPProtocol.h</key>
