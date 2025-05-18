@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |spec|
   spec.name             = 'TDOS_Diagnose'
-  spec.version          = '0.8.6'
+  spec.version          = '0.8.7'
   spec.summary          = '腾讯Bugly-日志诊断SDK'
   spec.description      = <<-DESC
                         一款由腾讯Bugly团队推出的日志诊断SDK.
@@ -17,6 +17,7 @@ Pod::Spec.new do |spec|
   
   # ――― Sub Specs ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.default_subspec = 'AIO'
+  spec.static_framework = true
   
   #诊断核心模块
   spec.subspec 'Core' do |ss|
