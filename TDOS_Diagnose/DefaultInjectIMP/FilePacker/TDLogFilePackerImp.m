@@ -21,7 +21,8 @@ TDIA_IGNORE_WARNING_END
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _packDir = [NSString stringWithFormat:@"%@/tmp/TDOSLogTmp/", NSHomeDirectory()];
+        _packDir = [NSString stringWithFormat:@"%@/tmp/TDOSLogTmp/", NSTemporaryDirectory()];
+        _packerLogExpiredTime = 7*24*60*60;
     }
     return self;
 }
@@ -87,4 +88,15 @@ TDIA_IGNORE_WARNING_END
     return nil;
 }
 
+- (nullable NSString *)packFilesTempDir {
+    return self.packDir;
+}
+
+- (void)setPackerLogExpiredTime:(long)time {
+    _packerLogExpiredTime = time;
+}
+
+- (long)getPackerLogExpiredTime {
+    return self.packerLogExpiredTime;
+}
 @end

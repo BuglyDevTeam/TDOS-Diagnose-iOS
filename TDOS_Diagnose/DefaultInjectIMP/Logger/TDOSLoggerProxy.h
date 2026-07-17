@@ -27,6 +27,19 @@ do { \
 #define TDLogError(tag, format, ...) TDOSLog(RAFTLogLevelError, tag, format, ##__VA_ARGS__)
 #define TDLogFatal(tag, format, ...) TDOSLog(RAFTLogLevelFatal, tag, format, ##__VA_ARGS__)
 
+#define TDOSLogMsg(level, tag_name, logMsg) \
+do { \
+    id<TDLoggingIMPProtocol> logger = [[TDOSLoggerProxy defaultProxy] logger]; \
+    [logger log:level tag:tag_name file:__FILE__ func:__func__ line:__LINE__ msg:logMsg]; \
+} while (0)
+
+#define TDLogDebugMsg(tag, logMsg) TDOSLogMsg(RAFTLogLevelDebug, tag, logMsg)
+#define TDLogInfoMsg(tag, logMsg) TDOSLogMsg(RAFTLogLevelInfo, tag, logMsg)
+#define TDLogWarnMsg(tag, logMsg) TDOSLogMsg(RAFTLogLevelWarn, tag, logMsg)
+#define TDLogErrorMsg(tag, logMsg) TDOSLogMsg(RAFTLogLevelError, tag, logMsg)
+#define TDLogFatalMsg(tag, logMsg) TDOSLogMsg(RAFTLogLevelFatal, tag, logMsg)
+
+
 
 /// 打日志模块解耦代理（可选集成）
 @interface TDOSLoggerProxy : NSProxy <TDLoggingIMPProtocol>

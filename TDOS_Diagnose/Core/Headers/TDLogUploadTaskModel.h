@@ -37,7 +37,8 @@ typedef NS_ENUM(NSUInteger, TDLogUploadDetailFailType) {
 
 #define TDLOG_UPLOADTASK_NO_RETRY    NSIntegerMax
 typedef void(^TDLogUploadCompletionBlock)(BOOL result, NSString * _Nullable errMsg);
-
+typedef void(^TDLogUploadProgressBlock)(NSUInteger index, NSUInteger successParts, NSUInteger totalParts);
+typedef void(^TDLogUploadFileSizeBlock)(NSUInteger fileSize);
 
 @interface TDLogUploadTaskModel : NSObject
 
@@ -73,7 +74,12 @@ typedef void(^TDLogUploadCompletionBlock)(BOOL result, NSString * _Nullable errM
 @property (nonatomic, copy, nullable) NSString *downloadUrl;
 
 /// 记录上传结束后的回调
-@property (nonatomic, copy, nullable) TDLogUploadCompletionBlock completionBlock;
+@property (atomic, copy, nullable) TDLogUploadCompletionBlock completionBlock;
+/// cos 分片完成回调
+@property (atomic, copy, nullable) TDLogUploadProgressBlock progressBlock;
+/// 上报前返回需要上传的压缩文件的大小的回调
+@property (atomic, copy, nullable) TDLogUploadFileSizeBlock fileSizeBlock;
+
 
 #pragma mark - 重试与失败信息
 
@@ -94,6 +100,8 @@ typedef void(^TDLogUploadCompletionBlock)(BOOL result, NSString * _Nullable errM
 
 /// 是否使用了COS的分片上传
 @property (nonatomic, assign) BOOL isCOSMultiPartUpload;
+/// COS 分片大小
+@property (nonatomic, assign) NSUInteger multiPartSliceSize;
 /// 上传文件大小（压缩包）
 @property (nonatomic, assign) NSUInteger uploadFileSize;
 /// 任务上一阶段结束时间

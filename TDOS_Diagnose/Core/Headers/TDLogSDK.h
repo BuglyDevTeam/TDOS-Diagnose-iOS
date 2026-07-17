@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param tag 标签，必填，长度不超过64bytes
 /// @param summary 摘要信息（支持搜索），选填，长度不超过256bytes
 /// @param extendInfoDict 扩展信息，选填，需支持序列化，长度不超过1K
-/// @param completionBlock 上传结果回调
+/// @param completionBlock 上传结果回调，首次上传失败后自动重试后不再回调
 - (void)uploadFiles:(nonnull NSArray <NSString *> *)files
             withTag:(NSString *)tag
             summary:(nullable NSString *)summary
@@ -48,12 +48,30 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param summary 摘要信息（支持搜索），选填，长度不超过256bytes
 /// @param queryInfo 检索信息，选填，用于平台互通（跨系统检索）
 /// @param extendInfoDict 扩展信息，选填，需支持序列化，长度不超过1K
-/// @param completionBlock 上传结果回调
+/// @param completionBlock 上传结果回调，首次上传失败后自动重试后不再回调
 - (void)uploadFiles:(nonnull NSArray <NSString *> *)files
             withTag:(NSString *)tag
             summary:(nullable NSString *)summary
        extQueryInfo:(nullable TDLogExtQueryInfo *)queryInfo
       andExtendInfo:(nullable NSDictionary *)extendInfoDict
+         completion:(void (^)(BOOL result, NSString *_Nullable errMsg))completionBlock;
+
+/// 主动上报日志接口3，用法同上，增加 progress callback, fileSize callback
+/// @param files 日志文件列表
+/// @param tag 标签，必填，长度不超过64bytes
+/// @param summary 摘要信息（支持搜索），选填，长度不超过256bytes
+/// @param queryInfo 检索信息，选填，用于平台互通（跨系统检索）
+/// @param extendInfoDict 扩展信息，选填，需支持序列化，长度不超过1K
+/// @param progressBlock 上传进度回调，按照总大小和分片大小回调，每完成一个分片回调一次
+/// @param fileSizeBlock 文件大小回调，压缩文件大小确定后回调一次，单位为byte
+/// @param completionBlock 上传结果回调，首次上传失败后自动重试后不再回调
+- (void)uploadFiles:(nonnull NSArray <NSString *> *)files
+            withTag:(NSString *)tag
+            summary:(nullable NSString *)summary
+       extQueryInfo:(nullable TDLogExtQueryInfo *)queryInfo
+      andExtendInfo:(nullable NSDictionary *)extendInfoDict
+           progress:(nullable void (^)(NSUInteger index, NSUInteger successParts, NSUInteger totalParts))progressBlock
+           fileSize:(nullable void (^)(NSUInteger fileSize))fileSizeBlock
          completion:(void (^)(BOOL result, NSString *_Nullable errMsg))completionBlock;
 
 

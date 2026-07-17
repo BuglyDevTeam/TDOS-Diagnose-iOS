@@ -18,9 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// default is '/tmp/TDOSLog/'
 @property (nonatomic, strong, readonly) NSString *packDir;
 
+@property (nonatomic, readonly) long packerLogExpiredTime;
+
 /// Set custom file packing directory
 /// @param tmpPackDir dir full path
 - (void)setCustomPackDir:(NSString *)tmpPackDir;
+
+/// 设置packer日志最大存留时间
+/// @param time 单位s，默认7（7*24*60*60）天
+- (void)setPackerLogExpiredTime:(long)time;
 
 @end
 
