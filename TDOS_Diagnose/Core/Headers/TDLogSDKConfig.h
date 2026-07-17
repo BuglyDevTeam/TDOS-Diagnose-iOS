@@ -18,6 +18,10 @@ typedef NS_ENUM(NSUInteger, TDLogServerHostType) {
     TDLogServerHostTypeOversea,
     TDLogServerHostTypeBuglyPro,
     TDLogServerHostTypeBuglyOversea,
+    TDLogServerHostTypeTencentCloud,
+    TDLogServerHostTypeTencentCloudOversea,
+    TDLogServerHostTypeDBugly,
+    TDLogServerHostTypeFrontarc
 };
 
 /// SDK所需的必要信息
@@ -134,8 +138,10 @@ typedef NS_ENUM(NSUInteger, TDLogServerHostType) {
 
 #pragma mark - Upload Parameter Related
 
-/// 使用分片上传的大小阈值
+/// 使用分片上传的大小阈值，单位 bytes，默认 10M （10 * 1024 * 1024）
 @property (nonatomic, strong) NSNumber *thresholdForMultiPartUpload;
+/// 分片大小，单位 bytes，未设置使用 SDK 内部值 5M (5 * 1024 * 1024)，小于 10 bytes 认为为无效值
+@property (nonatomic, strong) NSNumber *multiPartSliceSize;
 
 
 #pragma mark - Others

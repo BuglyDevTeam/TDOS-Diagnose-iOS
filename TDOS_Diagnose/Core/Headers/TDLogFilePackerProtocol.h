@@ -18,6 +18,12 @@
 - (nullable NSString *)packFiles:(nonnull NSArray<NSString *> *)files
                      withZipName:(nonnull NSString *)zipName;
 
+/// get pack files temp dir, used to clean history temp files
+- (nullable NSString *)packFilesTempDir;
+
+/// get pack files expired time, used to clean history temp files
+- (long)getPackerLogExpiredTime;
+
 @end
 
 

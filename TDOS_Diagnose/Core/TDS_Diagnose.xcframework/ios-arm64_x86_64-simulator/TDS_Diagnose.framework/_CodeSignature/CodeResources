@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/IBaseEvent.h</key>
 		<data>
-		SAeq77Sa4C4ientJnx/RUSGta+s=
+		Ft5YKLltk2vkJFEkr1P4xAwM0Bw=
 		</data>
 		<key>Headers/ILogMacro.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Headers/IRTransformData.h</key>
 		<data>
-		xwUmb4NE12AdYedwMeG40TEfz3c=
+		Bb1dv4tOP1das42tsca53j0GWhM=
 		</data>
 		<key>Headers/RAFTBeaconProtocol.h</key>
 		<data>
-		MrKgdGVdt9XX4IqLwI5dMMHzngs=
+		n84tpkmldbnteQNqQFO80oVy0tc=
 		</data>
 		<key>Headers/RAFTChannelProtocol.h</key>
 		<data>
-		xieGUbR5MdH5JX11SMAn4QzkIco=
+		aodvSlGgS1QPTDs5g3IgY8g7bHU=
 		</data>
 		<key>Headers/RAFTDownloadProtocol.h</key>
 		<data>
@@ -42,11 +42,11 @@
 		</data>
 		<key>Headers/RAFTLogDef.h</key>
 		<data>
-		8hS2xisIm0E/ZB42dSP7G8ZFGJ8=
+		W6PeLn/2cQzvFp3I4kDldA5vfrU=
 		</data>
 		<key>Headers/RAFTLogProtocol.h</key>
 		<data>
-		Spx4ucVa8CdmceSEY3rXoxr2vXQ=
+		G4tdU36qC+0y6BwFzsdHKDuMHZ0=
 		</data>
 		<key>Headers/RAFTNetworkProtocol.h</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Headers/TDLogCosUploadModels.h</key>
 		<data>
-		RkiW7dJH49CgU0JxccUxQVxPpNc=
+		npvphXXBqQEwHpup3+OWLtp6TkE=
 		</data>
 		<key>Headers/TDLogDataReport.h</key>
 		<data>
@@ -122,11 +122,11 @@
 		</data>
 		<key>Headers/TDLogFilePackerProtocol.h</key>
 		<data>
-		1HzKkIqhFOGb+vumRgT/db7/quA=
+		mdOboMt5XhoE89SZqV/kat8FmBY=
 		</data>
 		<key>Headers/TDLogRequestCommon.h</key>
 		<data>
-		OFozQ+r0sTQd0tPcFnEdyubwSY0=
+		o/VZi1OhnEgttREfitKHNBjUCtE=
 		</data>
 		<key>Headers/TDLogResourceWatchDog.h</key>
 		<data>
@@ -134,11 +134,11 @@
 		</data>
 		<key>Headers/TDLogSDK.h</key>
 		<data>
-		Yf8tdC9MXmz9h4YXocDq40VE75U=
+		8YF2cF7Iwj77ZFnb1L4WWrVsMTU=
 		</data>
 		<key>Headers/TDLogSDKConfig.h</key>
 		<data>
-		tbJTFamyVkZn/VE/WkaVobR/8ck=
+		hWYKb49pFr7mQPvmPvWJ2WehJcw=
 		</data>
 		<key>Headers/TDLogStateReportManager.h</key>
 		<data>
@@ -182,7 +182,7 @@
 		</data>
 		<key>Headers/TDLogUploadTaskModel.h</key>
 		<data>
-		b4yEAeBxFIMvAIU/fJpdtF9lwTQ=
+		9SrlpIdf2H3spsqNIwatLPbcqc0=
 		</data>
 		<key>Headers/TDLoggingIMPProtocol.h</key>
 		<data>
@@ -198,7 +198,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1KYby5bppPkLDBlh9C9EIPUFa0o=
+		GTnBLcxTMpZkEyqeGHiwcMUd52o=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -211,11 +211,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SAeq77Sa4C4ientJnx/RUSGta+s=
+			Ft5YKLltk2vkJFEkr1P4xAwM0Bw=
 			</data>
 			<key>hash2</key>
 			<data>
-			1B5qwNjAihI44NcsNMJu7vuUrYfX1rwv5N3gwQ2AbT0=
+			CxTAWR9KzMTDLEWXEJdh1uqUT03Hrj8V+TE2rb8hah0=
 			</data>
 		</dict>
 		<key>Headers/ILogMacro.h</key>
@@ -233,33 +233,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xwUmb4NE12AdYedwMeG40TEfz3c=
+			Bb1dv4tOP1das42tsca53j0GWhM=
 			</data>
 			<key>hash2</key>
 			<data>
-			TMNp4A0SUZQ3NvrdoC/yJB2/JfQNxb4qdwRklrHs/Ns=
+			BVTMkYGoBzWieV6rSYDB/2D2kSBPswZOqSzKa+iPnhY=
 			</data>
 		</dict>
 		<key>Headers/RAFTBeaconProtocol.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MrKgdGVdt9XX4IqLwI5dMMHzngs=
+			n84tpkmldbnteQNqQFO80oVy0tc=
 			</data>
 			<key>hash2</key>
 			<data>
-			ADiGEAa7sy05T46TNqjdKJ+YS0m958t2OZcXH1AkVxk=
+			MuJN8Ju4xz4PdHjLlCSmOO+4e5ewRpHoGne7plXIfkM=
 			</data>
 		</dict>
 		<key>Headers/RAFTChannelProtocol.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xieGUbR5MdH5JX11SMAn4QzkIco=
+			aodvSlGgS1QPTDs5g3IgY8g7bHU=
 			</data>
 			<key>hash2</key>
 			<data>
-			vNeMQHTh5fFr3Monaqs+Mqw5m4x5Re8iub0a/NPq0cM=
+			RhCvnN0vap0ZTVWbGpQU/0kjKt6lf159/0aDXXvep2I=
 			</data>
 		</dict>
 		<key>Headers/RAFTDownloadProtocol.h</key>
@@ -310,22 +310,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8hS2xisIm0E/ZB42dSP7G8ZFGJ8=
+			W6PeLn/2cQzvFp3I4kDldA5vfrU=
 			</data>
 			<key>hash2</key>
 			<data>
-			cDz7mbig5GGPiEArOJKyXvh5zM+njXEjGkVDheH4Ov0=
+			fo82n8dtN5KS8iLT37dk/AE0/DZ97xb7EVEzmdqerOU=
 			</data>
 		</dict>
 		<key>Headers/RAFTLogProtocol.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Spx4ucVa8CdmceSEY3rXoxr2vXQ=
+			G4tdU36qC+0y6BwFzsdHKDuMHZ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			F3DxiWAuOIWe4W3YmLn61HbdsayLT5LDWUn+68B8PrA=
+			dltfFOZxa2Pgq5qn5Wx2D+/PdaZFF8kN0la8IiK1wIU=
 			</data>
 		</dict>
 		<key>Headers/RAFTNetworkProtocol.h</key>
@@ -508,11 +508,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RkiW7dJH49CgU0JxccUxQVxPpNc=
+			npvphXXBqQEwHpup3+OWLtp6TkE=
 			</data>
 			<key>hash2</key>
 			<data>
-			/QjfDGXo8o5TGP28s87Ok50dUaEMbHV/dinGPSm3CI8=
+			YguuD2FJJdOaUoljQ1A4WuhbbhS8ZDPRLi6O2NnwGaI=
 			</data>
 		</dict>
 		<key>Headers/TDLogDataReport.h</key>
@@ -530,22 +530,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1HzKkIqhFOGb+vumRgT/db7/quA=
+			mdOboMt5XhoE89SZqV/kat8FmBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			nmg9WkopJjGnvPIU5N2bwk1SrS+T38cVj7De923oDrw=
+			XRFULVU52a7fMxOYMYgowDyQTWUiZIzekqH7XBdxZnk=
 			</data>
 		</dict>
 		<key>Headers/TDLogRequestCommon.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OFozQ+r0sTQd0tPcFnEdyubwSY0=
+			o/VZi1OhnEgttREfitKHNBjUCtE=
 			</data>
 			<key>hash2</key>
 			<data>
-			oQqg7qE0ZIAfnk61//yNoFrGeg7zE0Lvbfx0nrFk8QM=
+			wMMxDnOIXyl1pk0j1n43zTov56kbPji0/a/uxBxhmvU=
 			</data>
 		</dict>
 		<key>Headers/TDLogResourceWatchDog.h</key>
@@ -563,22 +563,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Yf8tdC9MXmz9h4YXocDq40VE75U=
+			8YF2cF7Iwj77ZFnb1L4WWrVsMTU=
 			</data>
 			<key>hash2</key>
 			<data>
-			qDZ7pRFfM+G9M+eV66y5qW5gXz8Q9IxOasGeOFw7tYA=
+			Bdf8zkcu9cgAZkTIAEog+CNj+Gcn3tr+5YOChU7MHNo=
 			</data>
 		</dict>
 		<key>Headers/TDLogSDKConfig.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tbJTFamyVkZn/VE/WkaVobR/8ck=
+			hWYKb49pFr7mQPvmPvWJ2WehJcw=
 			</data>
 			<key>hash2</key>
 			<data>
-			4z39LpNpbA+B8k6EemIl9avs/0J8am0y4Xn8mrljwY0=
+			NqFIGk/VO17137ZM9uAb4gogHpKRwxkKtF+UXjDJFbI=
 			</data>
 		</dict>
 		<key>Headers/TDLogStateReportManager.h</key>
@@ -695,11 +695,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b4yEAeBxFIMvAIU/fJpdtF9lwTQ=
+			9SrlpIdf2H3spsqNIwatLPbcqc0=
 			</data>
 			<key>hash2</key>
 			<data>
-			/0aczuqvPrR6TB1DLxhgogzw9jPyv+kYHvBvYn3w3EI=
+			6Uf2n6Af41KNXzFffkwlfsCLtXTt4IliCdyXb5v7BqE=
 			</data>
 		</dict>
 		<key>Headers/TDLoggingIMPProtocol.h</key>

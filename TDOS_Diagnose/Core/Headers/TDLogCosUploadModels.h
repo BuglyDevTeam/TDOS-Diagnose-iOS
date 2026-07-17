@@ -25,6 +25,7 @@ typedef enum : NSUInteger {
 
 
 typedef void (^TDLogCosUploadCallBack)(BOOL succeed, NSString * _Nullable cosDownloadUrl,  NSString * _Nullable errorString);
+typedef void (^TDLogCosUploadProgressCallback)(NSUInteger partIndex, NSUInteger successParts, NSUInteger totalParts);
 
 
 /// COS上传任务
@@ -38,6 +39,8 @@ typedef void (^TDLogCosUploadCallBack)(BOOL succeed, NSString * _Nullable cosDow
 @property (nonatomic, strong) TDLogUploadTaskModel *uploadTaskInfo;
 /// 任务回调，每次启动前赋值
 @property (nonatomic, strong, nullable) TDLogCosUploadCallBack callback;
+/// 上传进度回调
+@property (nonatomic, strong, nullable) TDLogCosUploadProgressCallback progressCallback;
 
 #pragma mark - 分片上传相关
 

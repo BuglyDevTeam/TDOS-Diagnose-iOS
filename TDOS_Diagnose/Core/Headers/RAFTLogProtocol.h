@@ -2,6 +2,7 @@
 //  RAFTLogProtocol.h
 //
 //  Created by RAFT on 2021/5/10.
+//  Copyright © 2021 RAFT. All rights reserved.
 //
 
 #ifndef RAFTLogProtocol_h

@@ -17,6 +17,10 @@ FOUNDATION_EXTERN NSString * const TDLogTestServerHost;
 FOUNDATION_EXTERN NSString * const TDLogOverseaServerHost;
 FOUNDATION_EXPORT NSString * const TDLogBuglyProServerHost;
 FOUNDATION_EXPORT NSString * const TDLogBuglyOverseaServerHost;
+FOUNDATION_EXPORT NSString * const TDLogTencentCloudServerHost;
+FOUNDATION_EXPORT NSString * const TDLogTencentCloudOverseaServerHost;
+FOUNDATION_EXPORT NSString * const TDLogDjiServerHost;
+FOUNDATION_EXPORT NSString * const TDLogFrontarcServerHost;
 
 FOUNDATION_EXTERN NSString * const TDLogUploadResultNotification;
 
