@@ -11,7 +11,6 @@ fi
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PODSPEC="$SCRIPT_DIR/TDOS_Diagnose.podspec"
-CHANGELOG="$SCRIPT_DIR/CHANGELOG.md"
 REPO="BuglyDevTeam/TDOS-Diagnose-iOS"
 
 echo "🚀 开始发布 TDOS_Diagnose $VERSION"
@@ -56,22 +55,14 @@ git push origin "$VERSION"
 # ――― 创建 GitHub Release ――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 echo "📋 创建 GitHub Release ..."
 
-if [ -f "$CHANGELOG" ]; then
-    gh release create "$VERSION" \
-        --title "$VERSION" \
-        --notes-file "$CHANGELOG" \
-        --repo "$REPO"
-else
-    gh release create "$VERSION" \
-        --title "$VERSION" \
-        --generate-notes \
-        --repo "$REPO"
-fi
+gh release create "$VERSION" \
+    --title "$VERSION" \
+    --generate-notes \
+    --repo "$REPO"
 
 # ――― 发布到 CocoaPods trunk ――――――――――――――――――――――――――――――――――――――――――――――――――― #
 echo "🍫 发布到 CocoaPods trunk ..."
 pod trunk push "$PODSPEC" \
-    --sources='https://cdn.cocoapods.org/' \
     --verbose \
     --use-libraries \
     --use-modular-headers \
