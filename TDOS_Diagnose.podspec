@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |spec|
   spec.name             = 'TDOS_Diagnose'
-  spec.version          = '0.0.1'
+  spec.version          = '0.0.1.4'
   spec.summary          = '腾讯Bugly-日志诊断SDK'
   spec.description      = <<-DESC
                         一款由腾讯Bugly团队推出的日志诊断SDK.

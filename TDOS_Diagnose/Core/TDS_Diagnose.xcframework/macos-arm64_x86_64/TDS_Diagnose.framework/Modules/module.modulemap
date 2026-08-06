@@ -1,6 +1,0 @@
-framework module TDS_Diagnose {
-  umbrella header "TDS_Diagnose-umbrella.h"
-
-  export *
-  module * { export * }
-}
